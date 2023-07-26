@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from . models import Marklist
+
 
 # Create your views here.
 
 
-def index(request):
+def post_mark(request):
     if request.method=="POST":
 
         student = Marklist()
@@ -20,7 +21,24 @@ def index(request):
     student = {
         "student":student
     }
-    
     return render(request,'index.html',student)
+
+def update_mark(request,id):
+    stud = Marklist.objects.get(id=id)
+    if request.method=="POST":
+        
+        stud.name = request.POST['name']
+        stud.rollno = request.POST['rollno']
+        stud.grade = request.POST['grade']
+        stud.save()
+
+        return redirect('post_mark')
+    
+    stud = {
+        "stud" : stud
+    }
+
+    return render(request,'update.html',stud)
+
 
 
