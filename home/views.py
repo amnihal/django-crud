@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import School
+from . models import Marklist
 
 # Create your views here.
 
@@ -7,7 +7,7 @@ from . models import School
 def index(request):
     if request.method=="POST":
 
-        student = School()
+        student = Marklist()
         
         student.name = request.POST.get('name')
         student.rollno = request.POST.get('rollno')
@@ -15,7 +15,7 @@ def index(request):
 
         student.save()
 
-    student=School.objects.all()
+    student=Marklist.objects.all()
 
     student = {
         "student":student

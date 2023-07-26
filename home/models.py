@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class School(models.Model):
+class Marklist(models.Model):
     name=models.CharField(max_length=30)
     rollno=models.IntegerField()
     grade=models.CharField(max_length=30) 
