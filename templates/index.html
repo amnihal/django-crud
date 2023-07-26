@@ -10,15 +10,15 @@
             {% csrf_token %}
 
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="name"><br>
+                <input type="text" class="form-control" id="floatingInput" name="name" required=""><br>
                 <label for="floatingInput">Name</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="rollno"><br>
+                <input type="text" class="form-control" id="floatingInput" name="rollno" required=""><br>
                 <label for="floatingInput">Roll No.</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInput" name="grade"><br>
+                <input type="text" class="form-control" id="floatingInput" name="grade" required=""><br>
                 <label for="floatingInput">Grade</label>
             </div>
 
@@ -33,12 +33,17 @@
             <th>Name</th>
             <th>Roll No.</th>
             <th>Grade</th>
+            <th>Options</th>
         </tr>
         {% for i in student %}
         <tr>
-            <th>{{i.name}}</th>
-            <th>{{i.rollno}}</th>
-            <th>{{i.grade}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.rollno}}</td>
+            <td>{{i.grade}}</td>
+            <td>
+                <button class="btn btn-primary" name="update">U</button>
+                <button class="btn btn-danger" name="remove">X</button>
+            </td>
         </tr>
         {% endfor %}
 
