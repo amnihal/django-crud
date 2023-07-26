@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="col-6">
+    <div class="d-flex align-items-center justify-content-center">
+        <form  action="" method="post">
+    
+            {% csrf_token %}
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="name"><br>
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="rollno"><br>
+                <label for="floatingInput">Roll No.</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="grade"><br>
+                <label for="floatingInput">Grade</label>
+            </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+
+        </form>
+    </div>
+</div>
+<div class="col-6">
+    <table class="table table-bordered">
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Grade</th>
+        </tr>
+        {% for i in student %}
+        <tr>
+            <th>{{i.name}}</th>
+            <th>{{i.rollno}}</th>
+            <th>{{i.grade}}</th>
+        </tr>
+        {% endfor %}
+
+
+
+
+
+    </table>
+</div>
+
+
+
+
+{% endblock content %}
