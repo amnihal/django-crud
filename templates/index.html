@@ -42,9 +42,11 @@
             <td>{{i.rollno}}</td>
             <td>{{i.grade}}</td>
             <td>
-                <a href="{% url 'update_mark' i.id %}" class="btn btn-primary" name="update"  >U</a>
+                <a href="{% url 'update_mark' i.id %}" class="btn btn-primary" name="update">U</a>
+
+                <a href="{% url 'remove_mark' i.id %}" class="btn btn-danger" name="remove">X</a>
                 
-                <button class="btn btn-danger" name="remove">X</button>
+                
             </td>
         </tr>
         {% endfor %}

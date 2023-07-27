@@ -40,5 +40,13 @@ def update_mark(request,id):
 
     return render(request,'update.html',stud)
 
+def remove_mark(request,id):
+    stud = Marklist.objects.get(id=id).delete()
+
+    return redirect('post_mark')
+
+
+
+
 
 
